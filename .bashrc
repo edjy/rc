@@ -31,7 +31,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -45,7 +45,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	PS1="\n\[\033[01;36m\]\w\n\[\033[01;35m\]\u@\h\$\[\033[00m\] "
+	export PS1="\n\[\033[01;36m\]\w\n\[\033[01;35m\]\u@\h\$\[\033[00m\] "
 fi
 unset color_prompt force_color_prompt
 
@@ -54,10 +54,10 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # enable color support of ls and also add handy aliases
-#if [ -x /usr/bin/dircolors ]; then
-#    eval "`dircolors -b`"
-#    alias ls='ls --color=auto'
-#fi
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
